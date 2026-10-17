@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Production build outputs
+dist/
+build/
+client/dist/
+
+# Environment and sensitive keys
+.env
+.env.*
+!.env.example
+server/.env
+server/.env.*
+!server/.env.example
+
+# Logs and runtime caches
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.system_generated/
+
+# SQLite databases and data folders
+*.sqlite
+*.sqlite3
+*.db
+server/data/*.sqlite
+server/data/*.sqlite3
+
+# Test outputs & Playwright reports
+test-results/
+playwright-report/
+client/test-results/
+client/playwright-report/
+coverage/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+

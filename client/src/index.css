@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ──────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased font-sans selection:bg-brand-500 selection:text-white;
+  }
+
+  /* Consistent numeric alignment */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-600 ring-offset-2;
+  }
+
+  /* Accessible Skip Link */
+  .skip-link {
+    position: absolute;
+    top: -9999px;
+    left: 1rem;
+    z-index: 100;
+    padding: 0.625rem 1.25rem;
+    background-color: #0f172a;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2);
+    transition: top 0.15s ease-in-out;
+  }
+  .skip-link:focus-visible {
+    top: 1rem;
+    outline: 2px solid #3b54e0;
+    outline-offset: 2px;
+  }
+
+  /* Dark mode body */
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
+
+/* ── Reduced motion for accessibility (WCAG 2.2 AA) ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Reusable component classes ───────────────────────────────────────────── */
+@layer components {
+
+  /* Sidebar nav link */
+  .nav-link {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-semibold
+           text-slate-600 hover:text-slate-900 hover:bg-slate-100/80
+           transition-all duration-150 cursor-pointer select-none;
+  }
+  .nav-link.active {
+    @apply bg-brand-50 text-brand-700 font-bold shadow-2xs;
+  }
+
+  /* Page container */
+  .page-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in;
+  }
+
+  /* Section heading */
+  .section-title {
+    @apply text-xl sm:text-2xl font-bold text-slate-900 tracking-tight;
+  }
+  .section-subtitle {
+    @apply text-slate-500 text-xs sm:text-sm mt-1;
+  }
+
+  /* Subtitle & Badge pill */
+  .badge-subtle {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-semibold;
+  }
+}
+
+/* ── Scrollbar styling ────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400;
+}
+

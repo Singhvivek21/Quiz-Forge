@@ -1,0 +1,32 @@
+{
+  "name": "ai-quizforge-server",
+  "version": "1.0.0",
+  "description": "AI QuizForge Express backend",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test:offline": "node test-scoring.js && node test-gamification.js && node test-security-audit.js && node test-teacher-mode.js && node test-qa-comprehensive.js && node test-gemini-offline.js && node test-upload-routes.js",
+    "test:live": "node test-gemini-live.js",
+    "test:upload": "node test-upload-routes.js",
+    "test": "npm run test:offline"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^8.0.0",
+    "mammoth": "^1.12.3",
+    "morgan": "^1.10.0",
+    "multer": "^2.4.0",
+    "pdf-parse": "^2.4.5",
+    "sql.js": "^1.12.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
